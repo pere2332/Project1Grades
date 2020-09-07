@@ -30,8 +30,7 @@ public class LoginPage extends AppCompatActivity {
                 .allowMainThreadQueries()
                 .build()
                 .getUserlogDAO();
-
-        //this pulled
+        
 
 
         login.setOnClickListener(new View.OnClickListener() {
