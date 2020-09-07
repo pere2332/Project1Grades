@@ -2,20 +2,19 @@ package com.example.project1grades;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
-import androidx.room.RoomDatabase;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.project1grades.DB.AppDatabase;
-import com.example.project1grades.DB.UserLogDAO;
+import com.example.project1grades.DB.DAO;
 
 import java.util.List;
 
 public class LoginPage extends AppCompatActivity {
 
-    UserLogDAO check;
+    DAO check;
     List<userlog> checku;
 
     Button login;
@@ -27,10 +26,11 @@ public class LoginPage extends AppCompatActivity {
 
         login = (Button) findViewById(R.id.signin);
 
-        check = (UserLogDAO) Room.databaseBuilder(this, AppDatabase.class, AppDatabase.DBNAME)
+        check = Room.databaseBuilder(this, AppDatabase.class, AppDatabase.DBNAME)
+                .allowMainThreadQueries()
                 .build()
-                .getUserlogDAO()
-                .getAllUserLogs();
+                .getUserlogDAO();
+
 
 
         login.setOnClickListener(new View.OnClickListener() {
