@@ -31,7 +31,6 @@ public class LoginPage extends AppCompatActivity {
                 .build()
                 .getUserlogDAO();
 
-        //this pulled
 
 
         login.setOnClickListener(new View.OnClickListener() {
