@@ -4,6 +4,7 @@ package com.example.project1grades.DB;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.RoomDatabase;
 import androidx.room.Update;
 
 import com.example.project1grades.userlog;
@@ -11,8 +12,10 @@ import com.example.project1grades.userlog;
 import java.util.List;
 
 @Dao
-public interface UserLogDAO {
+public interface DAO {
 
+
+    //Users
     @Insert
     void insert(userlog... userlogs);
 
@@ -21,5 +24,8 @@ public interface UserLogDAO {
 
     @Query("SELECT * FROM " + AppDatabase.USERLOG_TABLE + " ORDER BY username DESC")
     List<userlog> getAllUserLogs();
+
+
+
 
 }
