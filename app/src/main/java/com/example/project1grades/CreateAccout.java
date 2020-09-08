@@ -20,12 +20,16 @@ public class CreateAccout extends Activity {
     int counter = 0;
     int count_dupe = 0;
 
-    final DAO dao = AppDatabase.getAppDatabase(this).dao();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_account);
+
+        //AppDatabase.getAppDatabase*(this).loadData(this);
+        final DAO dao = AppDatabase.getAppDatabase(this).dao();
 
         user_name = findViewById(R.id.create_user);
         user_pass = findViewById(R.id.create_password);
