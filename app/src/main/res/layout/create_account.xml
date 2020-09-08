@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".CreateAccout">
 
     <EditText
         android:id="@+id/create_user"
@@ -31,18 +32,18 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginBottom="568dp"
-        android:text="TextView"
+        android:text="User Name"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:text="Username" />
+        tools:text="User Name" />
 
     <TextView
         android:id="@+id/create_password_tag"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginBottom="452dp"
-        android:text="TextView"
+        android:text="Password"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void createPage(){
-        Intent in = new Intent(this, CreateAccount.class);
+        Intent in = new Intent(this, CreateAccout.class);
         startActivity(in);
     }
 }
