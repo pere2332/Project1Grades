@@ -4,10 +4,6 @@ package com.example.project1grades.DB;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
-import androidx.room.RoomDatabase;
-import androidx.room.Update;
-
-import com.example.project1grades.userlog;
 
 import java.util.List;
 
@@ -17,14 +13,25 @@ public interface DAO {
 
     //Users
     @Insert
-    void insert(userlog... userlogs);
+    long addUser(User user);
 
-    @Update
+    @Query("select * from User")
+    List<User> getAllUsers();
+
+    @Query("select * from User where username = :username")
+    List<User> getUserByUsername(String username);
+
+    @Query("select * from User where username = :username and password = :password")
+    List<User> getUserByUsernamePassword(String username, String password);
+
+
+    /*@Update
     void update(userlog... userlogs);
+     */
 
-    @Query("SELECT * FROM " + AppDatabase.USERLOG_TABLE + " ORDER BY username DESC")
-    List<userlog> getAllUserLogs();
-
+    /*@Query("SELECT * FROM " + AppDatabase.USERLOG_TABLE + " ORDER BY username DESC")
+    List<User> getAllUserLogs();
+    */
     //Course functions
 
 

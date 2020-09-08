@@ -3,19 +3,23 @@ package com.example.project1grades;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.project1grades.DB.AppDatabase;
 import com.example.project1grades.DB.DAO;
+import com.example.project1grades.DB.User;
 
 import java.util.List;
 
 public class LoginPage extends AppCompatActivity {
-
+    EditText user;
+    EditText pwrd;
     DAO check;
-    List<userlog> checku;
 
     Button login;
 
@@ -24,30 +28,77 @@ public class LoginPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
 
+
+
+
+        final DAO dao = AppDatabase.getAppDatabase(this).dao();
+
         login = (Button) findViewById(R.id.signin);
-
-        check = Room.databaseBuilder(this, AppDatabase.class, AppDatabase.DBNAME)
-                .allowMainThreadQueries()
-                .build()
-                .getUserlogDAO();
-
-
-
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginnow();
+
+                List<User> users = dao.getAllUsers();
+                user = findViewById(R.id.Usr);
+                pwrd = findViewById(R.id.Pwd);
+
+                boolean pass = false;
+                boolean userRight = false;
+                boolean passRight = false;
+
+                final String username = user.getText().toString();
+                final String password = pwrd.getText().toString();
+
+                for(int i = 0; i < users.size(); i++){
+                    if(username.equals(users.get(i).getUsername()) && password.equals(users.get(i).getPassword())){
+                        pass = true;
+                        break;
+                    }
+                    if(username.equals(users.get(i).getUsername())){
+                        //password not right
+                        if(!password.equals(users.get(i).getPassword())){
+                            passRight = true;
+                            userRight = false;
+                            break;
+
+                        }
+                    } else if(password.equals(users.get(i).getPassword())){
+                        //username wrong
+                        if(!username.equals(users.get(i).getUsername())){
+                            userRight = true;
+                            passRight = false;
+                            break;
+                        }
+                    } else if(!password.equals(users.get(i).getPassword()) && !username.equals(users.get(i).getUsername())){
+                        //both wrong
+                        passRight = true;
+                        userRight = true;
+                    }
+                }
+
+                String u = username;
+                String p = password;
+
+                if(pass == true){
+                    Intent intent = new Intent(LoginPage.this, HomePage.class);
+                    Toast.makeText(LoginPage.this, "Welcome! " + username + "!", Toast.LENGTH_LONG).show();
+                    startActivity(intent);
+                }else if(pass == false){
+                    if(userRight && !passRight){
+                        Toast.makeText(LoginPage.this, "username is incorrect", Toast.LENGTH_LONG).show();
+                        user.setError("Invalid user name");
+                    }else if(passRight && !userRight){
+                        Toast.makeText(LoginPage.this, "password is incorrect", Toast.LENGTH_LONG).show();
+                        pwrd.setError("Invlid password");
+                    }else if(userRight && passRight){
+                        Toast.makeText(LoginPage.this, "both username and password are incorrect", Toast.LENGTH_LONG).show();
+                        user.setError("Invalid user name");
+                        pwrd.setError("Invlid password");
+                    }
+
+                }
             }
+
         });
-    }
-
-    public void loginnow(){
-        checku = check.getAllUserLogs();
-        if(!checku.isEmpty()){
-            for(userlog log : checku){
-
-            }
-        }
-
     }
 }

@@ -8,9 +8,8 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-
     Button login;
-
+    Button create;
 
 
     @Override
@@ -19,7 +18,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         login = (Button) findViewById(R.id.LOGIN);
+        create = findViewById(R.id.CREATE);
 
+        create.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(MainActivity.this, CreateAccount.class);
+                startActivity(in);
+            }
+        });
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
