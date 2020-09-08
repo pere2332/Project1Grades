@@ -4,4 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomePage"/>
+    tools:context=".HomePage">
+
+    <Button
+        android:id="@+id/courses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Courses"
+        tools:layout_editor_absoluteX="155dp"
+        tools:layout_editor_absoluteY="62dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

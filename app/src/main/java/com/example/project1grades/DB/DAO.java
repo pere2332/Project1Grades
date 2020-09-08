@@ -25,6 +25,8 @@ public interface DAO {
     @Query("SELECT * FROM " + AppDatabase.USERLOG_TABLE + " ORDER BY username DESC")
     List<userlog> getAllUserLogs();
 
+    //Course functions
+
 
 
 
