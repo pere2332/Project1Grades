@@ -20,9 +20,9 @@
         android:id="@+id/CREATE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="132dp"
-        android:layout_marginBottom="504dp"
-        android:text="Create Account"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="492dp"
+        android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

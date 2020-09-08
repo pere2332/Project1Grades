@@ -18,13 +18,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         login = (Button) findViewById(R.id.LOGIN);
-        create = findViewById(R.id.CREATE);
+        create = (Button) findViewById(R.id.CREATE);
 
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(MainActivity.this, CreateAccount.class);
-                startActivity(in);
+                createPage();
             }
         });
 
@@ -39,5 +38,10 @@ public class MainActivity extends AppCompatActivity {
     private void Loginpage(){
         Intent intent = new Intent(this, LoginPage.class);
         startActivity(intent);
+    }
+
+    private void createPage(){
+        Intent in = new Intent(this, CreateAccount.class);
+        startActivity(in);
     }
 }
