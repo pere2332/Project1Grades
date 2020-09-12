@@ -26,12 +26,4 @@ public abstract class AppDatabase extends RoomDatabase {
     }
 
 
-
-    /*//User
-    public static final String DBNAME = "db-userlog";
-    public static final String USERLOG_TABLE = "userlog";
-    public abstract DAO getUserlogDAO();
-    */
-
-
 }

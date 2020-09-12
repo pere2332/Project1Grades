@@ -1,6 +1,7 @@
 package com.example.project1grades;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
@@ -39,22 +40,37 @@ public class Course extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_courses_page);
 
-        Button return_main_button = findViewById(R.id.return_to_main);
-        return_main_button.setOnClickListener( new View.OnClickListener(){
+        //Button return_main_button = findViewById(R.id.return_to_main);
+        //return_main_button.setOnClickListener( new View.OnClickListener(){
+        //    @Override
+        //    public void onClick(View v){
+        //        finish();
+        //    }
+        //});
+
+        //TAKES USER TO ADD COURSES ACTIVITY
+        Button add_course_button = findViewById(R.id.activity_add_course_button);
+
+        add_course_button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-                finish();
+            public void onClick(View view) {
+                Intent intent = new Intent(Course.this,addCoursesActivity.class);
+                startActivity(intent);
             }
         });
 
 
-        addCourseButton = findViewById(R.id.add_course);
+
+
+
+        addCourseButton = findViewById(R.id.activity_add_course_button);
 
         addCourseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                addCourse();
+                Intent intent = new Intent(Course.this,addCoursesActivity.class);
+                startActivity(intent);
+               // addCourse();
 
             }
         });

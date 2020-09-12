@@ -34,7 +34,9 @@ public interface DAO {
     */
     //Course functions
 
-
+    //Course
+    @Insert
+    long addNewCourse(Course course);
 
 
 }
