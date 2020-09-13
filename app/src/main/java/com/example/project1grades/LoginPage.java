@@ -5,6 +5,7 @@ import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +24,7 @@ public class LoginPage extends AppCompatActivity {
 
     List<User> users;
     Button login;
+
 
     static User nUser = null;
 
@@ -46,8 +48,8 @@ public class LoginPage extends AppCompatActivity {
                 boolean userRight = false;
                 boolean passRight = false;
 
-                final String username = user.getText().toString();
-                final String password = pwrd.getText().toString();
+                String username = user.getText().toString();
+                String password = pwrd.getText().toString();
 
                 for(int i = 0; i < users.size(); i++){
                     if(username.equals(users.get(i).getUsername()) && password.equals(users.get(i).getPassword())){
@@ -98,6 +100,10 @@ public class LoginPage extends AppCompatActivity {
                     // shouldn't intent just be sent to the showCourseActivity since its pretty much our home?
                     // every time i try to send it there the app breaks, even if i comment out the code and put the same code as
                     // the home activity...
+                    for(int i = 0; i < users.size(); i++){
+                        Log.d("users: ", users.get(i).getUsername());
+                    }
+
                     Intent intent = new Intent(LoginPage.this, showCourseActivity.class);
                     Toast.makeText(LoginPage.this, "Welcome! " + username + "!", Toast.LENGTH_LONG).show();
                     //Toast.makeText(LoginPage.this, "Welcome! " + nUser + "!", Toast.LENGTH_LONG).show();
