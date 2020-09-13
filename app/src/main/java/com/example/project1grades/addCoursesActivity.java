@@ -10,7 +10,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.project1grades.DB.*;
+import com.example.project1grades.DB.User;
+import com.example.project1grades.DB.Course;
+import com.example.project1grades.DB.DAO;
+import com.example.project1grades.DB.AppDatabase;
+
+import java.util.List;
 
 public class addCoursesActivity extends AppCompatActivity {
 
@@ -19,7 +24,8 @@ public class addCoursesActivity extends AppCompatActivity {
     EditText mCourseDescription;
     EditText mStartDate;
     EditText mEndDate;
-   // User mUser = MainActivity.User; //GET THE USER THAT'S LOGGED IN
+    // im just trying different things
+    User mUser = LoginPage.nUser; //GET THE USER THAT'S LOGGED IN
 
     Button addCourseButton;
     Button returnMainMenu;
@@ -30,11 +36,7 @@ public class addCoursesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_course);
 
-       //Toolbar toolbar = findViewById(R.id.toolbar);
-       // setSupportActionBar(toolbar); android:id="@+id/add_course"
-
-        addCourseButton = findViewById(R.id.add_button);
-        //android:id="@+id/return_to_main"
+        addCourseButton = findViewById(R.id.add_course);
         returnMainMenu = findViewById(R.id.return_button);
 
         mInstructorName = findViewById(R.id.instructor_name);
@@ -46,9 +48,11 @@ public class addCoursesActivity extends AppCompatActivity {
         addCourseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(addCoursesActivity.this,Course.class);
+
+                addCourse();
+
+                Intent intent = new Intent(addCoursesActivity.this,showCourseActivity.class);
                 startActivity(intent);
-                //addCourse();
 
             }
         });
@@ -71,16 +75,14 @@ public class addCoursesActivity extends AppCompatActivity {
         String startDate = mStartDate.getText().toString();
         String endDate = mEndDate.getText().toString();
 
-        //GETS ACCESS TO THE DAO
         DAO dao = AppDatabase.getAppDatabase(addCoursesActivity.this).dao();
-        //NEED TO FIX THIS
-        //CREATES A COURSE OBJECT OUT OF OUR INPUT AND INSERTS THROUGH DAO METHOD INSERT
-        //Course newCourse = new Course(mUser.getUsername(),instructorName,courseTitle,courseDescription,startDate,endDate);
-        //dao.addNewCourse(newCourse);
+
+        Course newCourse = new Course(mUser.getUsername(),instructorName,courseTitle,courseDescription,startDate,endDate);
+        dao.addNewCourse(newCourse);
 
         Toast.makeText(this, "Course was added.", Toast.LENGTH_SHORT).show();
 
-        Intent intent = new Intent(addCoursesActivity.this,HomePage.class);
+        Intent intent = new Intent(addCoursesActivity.this,showCourseActivity.class);
         startActivity(intent);
 
         return true;

@@ -21,7 +21,10 @@ public class LoginPage extends AppCompatActivity {
     EditText pwrd;
     DAO check;
 
+    List<User> users;
     Button login;
+
+    static User nUser = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +41,7 @@ public class LoginPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                List<User> users = dao.getAllUsers();
+                users = dao.getAllUsers();
                 user = findViewById(R.id.Usr);
                 pwrd = findViewById(R.id.Pwd);
 
@@ -49,30 +52,45 @@ public class LoginPage extends AppCompatActivity {
                 final String username = user.getText().toString();
                 final String password = pwrd.getText().toString();
 
-                for(int i = 0; i < users.size(); i++){
-                    if(username.equals(users.get(i).getUsername()) && password.equals(users.get(i).getPassword())){
-                        pass = true;
-                        break;
-                    }
-                    if(username.equals(users.get(i).getUsername())){
-                        //password not right
-                        if(!password.equals(users.get(i).getPassword())){
-                            passRight = true;
-                            userRight = false;
-                            break;
+//                for(int i = 0; i < users.size(); i++){
+//                    if(username.equals(users.get(i).getUsername()) && password.equals(users.get(i).getPassword())){
+//                        pass = true;
+//                        //nUser = dao.getUserByUsername();
+//                        break;
+//                    }
+//                    if(username.equals(users.get(i).getUsername())){
+//                        //password not right
+//                        if(!password.equals(users.get(i).getPassword())){
+//                            passRight = true;
+//                            userRight = false;
+//                            break;
+//
+//                        }
+//                    } else if(password.equals(users.get(i).getPassword())){
+//                        //username wrong
+//                        if(!username.equals(users.get(i).getUsername())){
+//                            userRight = true;
+//                            passRight = false;
+//                            break;
+//                        }
+//                    } else if(!password.equals(users.get(i).getPassword()) && !username.equals(users.get(i).getUsername())){
+//                        //both wrong
+//                        passRight = true;
+//                        userRight = true;
+//                    }
+//                }
+                //Changed the for loop so i can get the user, idk if it breaks something
 
-                        }
-                    } else if(password.equals(users.get(i).getPassword())){
-                        //username wrong
-                        if(!username.equals(users.get(i).getUsername())){
-                            userRight = true;
-                            passRight = false;
-                            break;
-                        }
-                    } else if(!password.equals(users.get(i).getPassword()) && !username.equals(users.get(i).getUsername())){
-                        //both wrong
-                        passRight = true;
-                        userRight = true;
+                for(User existingUser:users){
+
+                    if(existingUser.getUsername().equals(username)&&existingUser.getPassword().equals(password)){
+
+                        //Toast.makeText(this, "User is Valid.", Toast.LENGTH_SHORT).show();
+
+                        nUser = existingUser;
+
+                        pass = true;
+
                     }
                 }
 
@@ -80,8 +98,13 @@ public class LoginPage extends AppCompatActivity {
                 String p = password;
 
                 if(pass == true){
+                    //nUser = users;
+                    // shouldn't intent just be sent to the showCourseActivity since its pretty much our home?
+                    // every time i try to send it there the app breaks, even if i comment out the code and put the same code as
+                    // the home activity...
                     Intent intent = new Intent(LoginPage.this, HomePage.class);
                     Toast.makeText(LoginPage.this, "Welcome! " + username + "!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginPage.this, "Welcome! " + nUser + "!", Toast.LENGTH_LONG).show();
                     startActivity(intent);
                 }else if(pass == false){
                     if(userRight && !passRight){

@@ -20,6 +20,8 @@ public class CreateAccout extends Activity {
     int counter = 0;
     int count_dupe = 0;
 
+    List<User> users;
+
 
 
 
@@ -34,6 +36,7 @@ public class CreateAccout extends Activity {
         user_name = findViewById(R.id.create_user);
         user_pass = findViewById(R.id.create_password);
         Button create_button = findViewById(R.id.create_button);
+
 
         create_button.setOnClickListener(new View.OnClickListener() {
             @Override

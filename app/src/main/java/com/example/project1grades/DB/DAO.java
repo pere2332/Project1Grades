@@ -38,5 +38,8 @@ public interface DAO {
     @Insert
     long addNewCourse(Course course);
 
+    @Query("select * from Course where username = :name")
+    List<Course> getCoursesForUser(String name);
+
 
 }
