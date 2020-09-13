@@ -10,19 +10,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import java.util.List;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
+import java.util.List;
 
 import com.example.project1grades.DB.AppDatabase;
 import com.example.project1grades.DB.User;
 import com.example.project1grades.DB.Course;
-
-
-
 
 public class showCourseActivity extends AppCompatActivity {
 
@@ -54,7 +47,6 @@ public class showCourseActivity extends AppCompatActivity {
         courses_view.setAdapter(new CourseListAdapter(this, courses));
     }
 
-
     public class CourseListAdapter extends ArrayAdapter<Course> {
 
         public CourseListAdapter(Activity context, List<Course> courses){
@@ -67,7 +59,6 @@ public class showCourseActivity extends AppCompatActivity {
             LayoutInflater inflater= showCourseActivity.this.getLayoutInflater();
             View rowView=inflater.inflate(R.layout.rowlayout, null,true);
             TextView rowField = rowView.findViewById(R.id.row_id);
-
             //set the value of a row in the ListView to the flight info using toString()
             rowField.setText(courses.get(position).toString());
             return rowView;

@@ -10,7 +10,6 @@ public class Course {
     private long id;
 
     private String userName;
-
     private String title;
     private String instructor;
     private String description;
@@ -22,7 +21,6 @@ public class Course {
     @Ignore
     public Course(String userName, String title, String instructor, String description, String startDate, String endDate) {
         this.userName = userName;
-
         this.title = title;
         this.instructor = instructor;
         this.description = description;

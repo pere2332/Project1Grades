@@ -8,25 +8,25 @@
 
 
     <EditText
-        android:id="@+id/Usr"
+        android:id="@+id/Pwd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="564dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginBottom="280dp"
         android:ems="10"
-        android:hint="Username"
+        android:hint="Password"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/Pwd"
+        android:id="@+id/Usr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="424dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginBottom="420dp"
         android:ems="10"
-        android:hint="Password"
+        android:hint="Username"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -35,8 +35,8 @@
         android:id="@+id/signin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="160dp"
-        android:layout_marginBottom="264dp"
+        android:layout_marginEnd="168dp"
+        android:layout_marginBottom="120dp"
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
