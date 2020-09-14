@@ -42,7 +42,7 @@ public interface DAO {
     @Query("select * from Course where username = :name")
     List<Course> getCoursesForUser(String name);
 
-    //Assignments
+    /*//Assignments
     @Insert
     void insert(Assignments... Asssignment);
 
@@ -50,7 +50,7 @@ public interface DAO {
     void update(Assignments... Assignment);
 
     @Query("select * from Assignments where courseid = :courseid" )
-    List<Assignments> getAssignments();
+    List<Assignments> getAssignments();*/
 
 
 
