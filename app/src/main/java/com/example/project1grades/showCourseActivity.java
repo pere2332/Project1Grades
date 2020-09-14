@@ -72,6 +72,7 @@ public class showCourseActivity extends AppCompatActivity {
             TextView rowField = rowView.findViewById(R.id.row_id);
             //set the value of a row in the ListView to the flight info using toString()
             rowField.setText(courses.get(position).toString());
+
             return rowView;
         }
 
