@@ -25,7 +25,6 @@ public class LoginPage extends AppCompatActivity {
     List<User> users;
     Button login;
 
-
     static User nUser = null;
 
     @Override
@@ -51,46 +50,37 @@ public class LoginPage extends AppCompatActivity {
                 String username = user.getText().toString();
                 String password = pwrd.getText().toString();
 
-                for(int i = 0; i < users.size(); i++){
-                    if(username.equals(users.get(i).getUsername()) && password.equals(users.get(i).getPassword())){
+                //changed the for loop
+                for(User existingUser:users){
+                    if(existingUser.getUsername().equals(username)&&existingUser.getPassword().equals(password)) {
+
+                        nUser = existingUser;
                         pass = true;
-                        //nUser = dao.getUserByUsername();
                         break;
                     }
-                    if(username.equals(users.get(i).getUsername())){
+
+                    if(username.equals(existingUser.getUsername())){
                         //password not right
-                        if(!password.equals(users.get(i).getPassword())){
+                        if(!password.equals(existingUser.getPassword())){
                             passRight = true;
                             userRight = false;
                             break;
 
                         }
-                    } else if(password.equals(users.get(i).getPassword())){
+                    } else if(password.equals(existingUser.getPassword())){
                         //username wrong
-                        if(!username.equals(users.get(i).getUsername())){
+                        if(!username.equals(existingUser.getUsername())){
                             userRight = true;
                             passRight = false;
                             break;
                         }
-                    } else if(!password.equals(users.get(i).getPassword()) && !username.equals(users.get(i).getUsername())){
+                    } else if(!password.equals(existingUser.getPassword()) && !username.equals(existingUser.getUsername())){
                         //both wrong
                         passRight = true;
                         userRight = true;
                     }
                 }
                 //Changed the for loop so i can get the user, idk if it breaks something
-
-                for(User existingUser:users){
-
-                    if(existingUser.getUsername().equals(username)&&existingUser.getPassword().equals(password)){
-
-                        nUser = existingUser;
-                        pass = true;
-
-                    } else {
-                        pass = false;
-                    }
-                }
 
                 String u = username;
                 String p = password;
@@ -100,9 +90,9 @@ public class LoginPage extends AppCompatActivity {
                     // shouldn't intent just be sent to the showCourseActivity since its pretty much our home?
                     // every time i try to send it there the app breaks, even if i comment out the code and put the same code as
                     // the home activity...
-                    for(int i = 0; i < users.size(); i++){
-                        Log.d("users: ", users.get(i).getUsername());
-                    }
+//                    for(int i = 0; i < users.size(); i++){
+//                        Log.d("users: ", users.get(i).getUsername());
+//                    }
 
                     Intent intent = new Intent(LoginPage.this, showCourseActivity.class);
                     Toast.makeText(LoginPage.this, "Welcome! " + username + "!", Toast.LENGTH_LONG).show();

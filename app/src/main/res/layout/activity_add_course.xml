@@ -16,20 +16,20 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Instructor Name" />
+        android:text="Course Title" />
 
     <EditText
-        android:id="@+id/instructor_name"
+        android:id="@+id/course_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Course Title" />
+        android:text="Instructor Name" />
 
     <EditText
-        android:id="@+id/course_title"
+        android:id="@+id/instructor_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
