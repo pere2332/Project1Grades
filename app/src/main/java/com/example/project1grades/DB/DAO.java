@@ -4,6 +4,7 @@ package com.example.project1grades.DB;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -40,6 +41,18 @@ public interface DAO {
 
     @Query("select * from Course where username = :name")
     List<Course> getCoursesForUser(String name);
+
+    //Assignments
+    @Insert
+    void insert(Assignments... Asssignment);
+
+    @Update
+    void update(Assignments... Assignment);
+
+    @Query("select * from Assignments where courseid = :courseid" )
+    List<Assignments> getAssignments();
+
+
 
 
 }

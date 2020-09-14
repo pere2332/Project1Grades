@@ -1,35 +1,44 @@
 package com.example.project1grades.DB;
 
+import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+@Entity
 public class Assignments {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
     private int courseid;
-    private int categoryid;
+    //private int categoryid;
 
     private double maxscore;
     private double earnedscore;
 
     String details;
+    String date;
+
+    //DateFormat assign_date = new SimpleDateFormat("MM/dd/yyyy");
+    //DateFormat due_date = new SimpleDateFormat("MM/dd/yyyy");
 
 
-    DateFormat assign_date = new SimpleDateFormat("MM/dd/yyyy");
-    DateFormat due_date = new SimpleDateFormat("MM/dd/yyyy");
-
-    public Assignments(int courseid, int categoryid, double maxscore, double earnedscore, String details, DateFormat assign_date, DateFormat due_date) {
+    public Assignments(int courseid, double maxscore, double earnedscore, String details, String date) {
         this.courseid = courseid;
-        this.categoryid = categoryid;
         this.maxscore = maxscore;
         this.earnedscore = earnedscore;
         this.details = details;
-        this.assign_date = assign_date;
-        this.due_date = due_date;
+        this.date = date;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public int getId() {
@@ -38,10 +47,6 @@ public class Assignments {
 
     public int getCourseid() {
         return courseid;
-    }
-
-    public int getCategoryid() {
-        return categoryid;
     }
 
     public double getMaxscore() {
@@ -56,14 +61,6 @@ public class Assignments {
         return details;
     }
 
-    public DateFormat getAssign_date() {
-        return assign_date;
-    }
-
-    public DateFormat getDue_date() {
-        return due_date;
-    }
-
     public void setMaxscore(double maxscore) {
         this.maxscore = maxscore;
     }
@@ -76,11 +73,14 @@ public class Assignments {
         this.details = details;
     }
 
-    public void setAssign_date(DateFormat assign_date) {
-        this.assign_date = assign_date;
-    }
 
-    public void setDue_date(DateFormat due_date) {
-        this.due_date = due_date;
+    @Override
+    public String toString() {
+        return "Assignments{" +
+                "maxscore=" + maxscore +
+                ", earnedscore=" + earnedscore +
+                ", details='" + details + '\'' +
+                ", date='" + date + '\'' +
+                '}';
     }
 }
