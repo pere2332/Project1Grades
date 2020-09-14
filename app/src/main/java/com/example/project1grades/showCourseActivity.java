@@ -47,7 +47,7 @@ public class showCourseActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(showCourseActivity.this, MainActivity.class);
                 startActivity(intent);
-                finish();
+                //finish();
             }
         });
 
