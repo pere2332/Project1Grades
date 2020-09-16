@@ -44,13 +44,13 @@ public interface DAO {
 
     //Assignments
     @Insert
-    void insert(Assignments... Asssignment);
+    void insert(Assignments... Assignment);
 
     @Update
     void update(Assignments... Assignment);
 
     @Query("select * from Assignments where courseid = :courseid" )
-    List<Assignments> getAssignments();
+    List<Assignments> getAssignmentbyid(int courseid);
 
 
 
