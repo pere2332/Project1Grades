@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,7 @@ public class showCourseActivity extends AppCompatActivity {
     Button addCourseButton;
     Button logoutButton;
     User mUser = LoginPage.nUser;
+    ListView courses_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +55,19 @@ public class showCourseActivity extends AppCompatActivity {
 
         courses = AppDatabase.getAppDatabase(this).dao().getCoursesForUser(mUser.getUsername());
 
-        ListView courses_view = findViewById(R.id.course_list);
+        courses_view = findViewById(R.id.course_list);
+
+
+
         //Takes in a course arraylist to display
         courses_view.setAdapter(new CourseListAdapter(this, courses));
+        courses_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(showCourseActivity.this, AssignmentsPage.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public class CourseListAdapter extends ArrayAdapter<Course> {
@@ -72,6 +84,7 @@ public class showCourseActivity extends AppCompatActivity {
             TextView rowField = rowView.findViewById(R.id.row_id);
             //set the value of a row in the ListView to the flight info using toString()
             rowField.setText(courses.get(position).toString());
+
             return rowView;
         }
 
