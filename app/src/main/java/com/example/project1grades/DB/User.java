@@ -12,6 +12,9 @@ public class User {
     private String username;
     private String password;
 
+    private String firstName;
+    private String lastName;
+
     public User(){}
 
     @Ignore
@@ -43,4 +46,15 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getFirstName(){ return firstName; }
+
+    public void setFirstName(String firstName){ this.firstName = firstName; }
+
+    public String getLastName(){ return firstName; }
+
+    public void setLastName(String lastName){ this.lastName = lastName; }
+
+
+
 }

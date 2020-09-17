@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "f3d0f9d998f9d8b62d2d379ec15b3129",
+    "identityHash": "5813d425563f63a355a7c0e3df58c20d",
     "entities": [
       {
         "tableName": "User",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `username` TEXT, `password` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `username` TEXT, `password` TEXT, `firstName` TEXT, `lastName` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -23,6 +23,18 @@
           {
             "fieldPath": "password",
             "columnName": "password",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "firstName",
+            "columnName": "firstName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lastName",
+            "columnName": "lastName",
             "affinity": "TEXT",
             "notNull": false
           }
@@ -91,12 +103,62 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "Assignments",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `courseid` INTEGER NOT NULL, `maxscore` REAL NOT NULL, `earnedscore` REAL NOT NULL, `details` TEXT, `date` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "courseid",
+            "columnName": "courseid",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "maxscore",
+            "columnName": "maxscore",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "earnedscore",
+            "columnName": "earnedscore",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "details",
+            "columnName": "details",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f3d0f9d998f9d8b62d2d379ec15b3129')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '5813d425563f63a355a7c0e3df58c20d')"
     ]
   }
 }
