@@ -13,7 +13,7 @@ public class Assignments {
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    private int courseid;
+    private long courseid;
     //private int categoryid;
 
     private double maxscore;
@@ -28,7 +28,7 @@ public class Assignments {
     //DateFormat due_date = new SimpleDateFormat("MM/dd/yyyy");
 
 
-    public Assignments(int courseid, double maxscore, double earnedscore, String details, String date) {
+    public Assignments(long courseid, double maxscore, double earnedscore, String details, String date) {
         this.courseid = courseid;
         this.maxscore = maxscore;
         this.earnedscore = earnedscore;
@@ -56,7 +56,7 @@ public class Assignments {
         return id;
     }
 
-    public int getCourseid() {
+    public long getCourseid() {
         return courseid;
     }
 

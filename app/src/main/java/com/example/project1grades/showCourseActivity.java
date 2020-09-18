@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,11 +21,15 @@ import com.example.project1grades.DB.Course;
 
 public class showCourseActivity extends AppCompatActivity {
 
+    static long nCourse;
     List<Course> courses;
     Button addCourseButton;
     Button logoutButton;
+    Button move;
+    EditText user;
     User mUser = LoginPage.nUser;
     ListView courses_view;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +38,8 @@ public class showCourseActivity extends AppCompatActivity {
 
         addCourseButton = findViewById(R.id.activity_add_course_button);
         logoutButton = findViewById(R.id.logout);
+        move = findViewById(R.id.movingtoAssignmet);
+        user = findViewById(R.id.userinput);
         //TAKES USER TO ADD COURSES ACTIVITY
         addCourseButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +60,13 @@ public class showCourseActivity extends AppCompatActivity {
             }
         });
 
+        move.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                change();
+            }
+        });
+
         courses = AppDatabase.getAppDatabase(this).dao().getCoursesForUser(mUser.getUsername());
 
         courses_view = findViewById(R.id.course_list);
@@ -68,6 +82,19 @@ public class showCourseActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public void change(){
+        String check = user.getText().toString();
+        if(!check.isEmpty()){
+            for(Course log : courses){
+                if(check == log.getTitle()){
+                    nCourse = log.getId();
+                    Intent intent = new Intent(showCourseActivity.this, AssignmentsPage.class);
+                    startActivity(intent);
+                }
+            }
+        }
     }
 
     public class CourseListAdapter extends ArrayAdapter<Course> {

@@ -23,7 +23,6 @@ public class addCoursesActivity extends AppCompatActivity {
     EditText mEndDate;
     // im just trying different things
     User mUser = LoginPage.nUser; //GET THE USER THAT'S LOGGED IN
-    static Course nCourse = null;
 
 
     Button addCourseButton;

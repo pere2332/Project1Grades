@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.project1grades.DB.AppDatabase;
 import com.example.project1grades.DB.Assignments;
+import com.example.project1grades.DB.Course;
 import com.example.project1grades.DB.DAO;
 
 import static java.lang.Double.parseDouble;
@@ -22,7 +23,7 @@ public class AddingAssignments extends AppCompatActivity {
     EditText earn;
     EditText max;
     EditText dates;
-    //Assignments num2 = AssignmentsPage;
+    long mCourse = showCourseActivity.nCourse;
 
 
     Button doneadding;
@@ -81,7 +82,7 @@ public class AddingAssignments extends AppCompatActivity {
 
 
         DAO dao = AppDatabase.getAppDatabase(AddingAssignments.this).dao();
-        Assignments newAssign = new Assignments(00, total, points, descrip, fecha);
+        Assignments newAssign = new Assignments(mCourse, total, points, descrip, fecha);
         dao.insert(newAssign);
 
         Toast.makeText(this,"Assignment was added.", Toast.LENGTH_LONG).show();
