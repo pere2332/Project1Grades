@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class AddingAssignments extends AppCompatActivity {
 
@@ -48,7 +49,7 @@ public class AddingAssignments extends AppCompatActivity {
                     //goingtoadd
                     backtoview();
                 }else{
-                    //toast
+                    failed();
                 }
 
             }
@@ -60,5 +61,10 @@ public class AddingAssignments extends AppCompatActivity {
         Intent intent = new Intent(AddingAssignments.this, AssignmentsPage.class);
         startActivity(intent);
     }
+
+    void failed(){
+        Toast.makeText(this, "everything", Toast.LENGTH_LONG).show();
+    }
+
 
 }

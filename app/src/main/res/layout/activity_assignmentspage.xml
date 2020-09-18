@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/adding"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AssignmentsPage">
@@ -10,8 +9,8 @@
 
     <TextView
         android:id="@+id/allassignments"
-        android:layout_width="369dp"
-        android:layout_height="359dp"
+        android:layout_width="365dp"
+        android:layout_height="278dp"
         android:fadeScrollbars="true"
         android:scrollbars="vertical"
         tools:layout_editor_absoluteX="24dp"
@@ -31,16 +30,50 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ADD"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="480dp" />
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="394dp" />
 
     <Button
         android:id="@+id/delete_assignment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="DELETE"
-        tools:layout_editor_absoluteX="60dp"
-        tools:layout_editor_absoluteY="579dp" />
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="475dp" />
+
+    <EditText
+        android:id="@+id/assigndetails"
+        android:layout_width="230dp"
+        android:layout_height="44dp"
+        android:ems="10"
+        android:hint="Write Out Detials Complete"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="156dp"
+        tools:layout_editor_absoluteY="477dp" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="548dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="166dp"
+        android:layout_height="29dp"
+        android:text="Current Percentage:"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="156dp"
+        tools:layout_editor_absoluteY="402dp" />
+
+    <TextView
+        android:id="@+id/percent"
+        android:layout_width="55dp"
+        android:layout_height="29dp"
+        tools:layout_editor_absoluteX="325dp"
+        tools:layout_editor_absoluteY="402dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
