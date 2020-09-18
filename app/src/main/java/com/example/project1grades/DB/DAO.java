@@ -2,6 +2,7 @@ package com.example.project1grades.DB;
 
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
@@ -48,6 +49,10 @@ public interface DAO {
 
     @Update
     void update(Assignments... Assignment);
+
+    @Delete
+    void delete(Assignments... Assignment);
+
 
     @Query("select * from Assignments where courseid = :courseid" )
     List<Assignments> getAssignmentbyid(int courseid);

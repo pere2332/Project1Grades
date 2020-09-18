@@ -12,6 +12,7 @@ public class Assignments {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
+
     private int courseid;
     //private int categoryid;
 
@@ -20,17 +21,18 @@ public class Assignments {
 
     String details;
     String date;
+    String type;
+
 
     //DateFormat assign_date = new SimpleDateFormat("MM/dd/yyyy");
     //DateFormat due_date = new SimpleDateFormat("MM/dd/yyyy");
 
-
-    public Assignments(int courseid, double maxscore, double earnedscore, String details, String date) {
-        this.courseid = courseid;
+    public Assignments(double maxscore, double earnedscore, String details, String date, String type) {
         this.maxscore = maxscore;
         this.earnedscore = earnedscore;
         this.details = details;
         this.date = date;
+        this.type = type;
     }
 
     public void setId(int id) {

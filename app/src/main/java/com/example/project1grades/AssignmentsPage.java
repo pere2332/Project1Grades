@@ -2,7 +2,9 @@ package com.example.project1grades;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import com.example.project1grades.DB.Assignments;
@@ -27,8 +29,17 @@ public class AssignmentsPage extends AppCompatActivity {
         addassignment = findViewById(R.id.add_assignmets);
         deleteassignment = findViewById(R.id.delete_assignment);
 
-        
+        addassignment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                movetoAdd();
+            }
+        });
 
+    }
+        void movetoAdd(){
+            Intent intent = new Intent(AssignmentsPage.this, AddingAssignments.class);
+            startActivity(intent);
     }
 
 }
