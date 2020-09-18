@@ -9,13 +9,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.project1grades.DB.AppDatabase;
+import com.example.project1grades.DB.Assignments;
+import com.example.project1grades.DB.DAO;
+
+import static java.lang.Double.parseDouble;
+
 public class AddingAssignments extends AppCompatActivity {
 
 
-    EditText detial;
+    EditText detail;
     EditText earn;
     EditText max;
     EditText dates;
+    //Assignments num2 = AssignmentsPage;
 
 
     Button doneadding;
@@ -31,7 +38,7 @@ public class AddingAssignments extends AppCompatActivity {
         setContentView(R.layout.activity_adding_assignments);
 
         doneadding = findViewById(R.id.done);
-        detial = findViewById(R.id.detials);
+        detail = findViewById(R.id.detials);
         earn = findViewById(R.id.earned);
         max = findViewById(R.id.max);
         dates = findViewById(R.id.date);
@@ -41,12 +48,12 @@ public class AddingAssignments extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String check1, check2, check3, check4;
-                check1 = detial.getText().toString();
+                check1 = detail.getText().toString();
                 check2 = earn.getText().toString();
                 check3 = max.getText().toString();
                 check4 = dates.getText().toString();
                 if(!check1.isEmpty() || !check2.isEmpty() || !check3.isEmpty() || !check4.isEmpty()){
-                    //goingtoadd
+                    goingtoadd();
                     backtoview();
                 }else{
                     failed();
@@ -57,13 +64,27 @@ public class AddingAssignments extends AppCompatActivity {
 
     }
 
-    void backtoview(){
+    public void backtoview(){
         Intent intent = new Intent(AddingAssignments.this, AssignmentsPage.class);
         startActivity(intent);
     }
 
-    void failed(){
+    public void failed(){
         Toast.makeText(this, "everything", Toast.LENGTH_LONG).show();
+    }
+
+    public void goingtoadd(){
+        String descrip = detail.getText().toString();
+        double points = parseDouble(earn.getText().toString());
+        double total = parseDouble(max.getText().toString());
+        String fecha = dates.getText().toString();
+
+
+        DAO dao = AppDatabase.getAppDatabase(AddingAssignments.this).dao();
+        Assignments newAssign = new Assignments(00, total, points, descrip, fecha);
+        dao.insert(newAssign);
+
+        Toast.makeText(this,"Assignment was added.", Toast.LENGTH_LONG).show();
     }
 
 

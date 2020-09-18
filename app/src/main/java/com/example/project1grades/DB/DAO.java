@@ -55,7 +55,7 @@ public interface DAO {
 
 
     @Query("select * from Assignments where courseid = :courseid" )
-    List<Assignments> getAssignmentbyid(int courseid);
+    List<Assignments> getAssignmentbyid(long courseid);
 
 
 
