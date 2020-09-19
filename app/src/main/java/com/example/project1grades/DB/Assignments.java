@@ -12,7 +12,8 @@ public class Assignments {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
-    private int courseid;
+
+    private long courseid;
     //private int categoryid;
 
     private double maxscore;
@@ -20,12 +21,14 @@ public class Assignments {
 
     String details;
     String date;
+    //String type;
+
 
     //DateFormat assign_date = new SimpleDateFormat("MM/dd/yyyy");
     //DateFormat due_date = new SimpleDateFormat("MM/dd/yyyy");
 
 
-    public Assignments(int courseid, double maxscore, double earnedscore, String details, String date) {
+    public Assignments(long courseid, double maxscore, double earnedscore, String details, String date) {
         this.courseid = courseid;
         this.maxscore = maxscore;
         this.earnedscore = earnedscore;
@@ -53,7 +56,7 @@ public class Assignments {
         return id;
     }
 
-    public int getCourseid() {
+    public long getCourseid() {
         return courseid;
     }
 
@@ -84,11 +87,10 @@ public class Assignments {
 
     @Override
     public String toString() {
-        return "Assignments{" +
-                "maxscore=" + maxscore +
-                ", earnedscore=" + earnedscore +
-                ", details='" + details + '\'' +
-                ", date='" + date + '\'' +
-                '}';
+        return  "Details: " + details + '\n' +
+                "Maxscore:" + maxscore + '\n' +
+                "Earnedscore: " + earnedscore + '\n' +
+                "Date: '" + date + '\'' +
+                "================================\n";
     }
 }

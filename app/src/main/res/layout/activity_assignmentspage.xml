@@ -10,37 +10,52 @@
 
     <TextView
         android:id="@+id/allassignments"
-        android:layout_width="369dp"
-        android:layout_height="359dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="43dp"
         android:fadeScrollbars="true"
         android:scrollbars="vertical"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="78dp" />
+        app:layout_constraintBottom_toTopOf="@+id/add_assignmets"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="339dp"
-        android:layout_height="39dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="36dp"
         android:fontFamily="sans-serif-black"
         android:text="Assignments"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="39dp" />
+        app:layout_constraintBottom_toTopOf="@+id/allassignments"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/add_assignmets"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
         android:text="ADD"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="480dp" />
+        app:layout_constraintBottom_toTopOf="@+id/delete_assignment"
+        app:layout_constraintStart_toStartOf="@+id/delete_assignment"
+        app:layout_constraintTop_toBottomOf="@+id/allassignments" />
 
     <Button
         android:id="@+id/delete_assignment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="111dp"
         android:text="DELETE"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="572dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_assignmets" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

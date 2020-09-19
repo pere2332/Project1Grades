@@ -1,3 +1,7 @@
+/**
+ * This activity adds the course the user creates to our database
+ */
+
 package com.example.project1grades;
 
 import android.content.Intent;
@@ -16,12 +20,18 @@ import com.example.project1grades.DB.AppDatabase;
 
 public class addCoursesActivity extends AppCompatActivity {
 
+    /**
+     * Initializing variables for our course to be filled out.
+     */
     EditText mInstructorName;
     EditText mCourseTitle;
     EditText mCourseDescription;
     EditText mStartDate;
     EditText mEndDate;
     // im just trying different things
+    /**
+     * this gets the user that is logged in and adds course to their account.
+     */
     User mUser = LoginPage.nUser; //GET THE USER THAT'S LOGGED IN
 
     Button addCourseButton;
