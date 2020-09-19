@@ -13,9 +13,7 @@ import java.util.List;
 public interface DAO {
 
 
-    /**
-     * Sql statements for users in our database.
-     */
+    //Users
     @Insert
     long addUser(User user);
 
@@ -36,22 +34,16 @@ public interface DAO {
     /*@Query("SELECT * FROM " + AppDatabase.USERLOG_TABLE + " ORDER BY username DESC")
     List<User> getAllUserLogs();
     */
+    //Course functions
 
-    /**
-     * Sql statements and insert for courses in our database.
-     */
+    //Course
     @Insert
     long addNewCourse(Course course);
 
     @Query("select * from Course where username = :name")
     List<Course> getCoursesForUser(String name);
 
-    @Update
-    void update(Course... Course);
-
-    /**
-     * Insert update and delete for our assignments.
-     */
+    //Assignments
     @Insert
     void insert(Assignments... Assignment);
 

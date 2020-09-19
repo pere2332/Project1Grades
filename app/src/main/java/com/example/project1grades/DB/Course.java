@@ -7,12 +7,8 @@ import androidx.room.PrimaryKey;
 @Entity
 public class Course {
     @PrimaryKey(autoGenerate = true)
-
     private long id;
 
-    /**
-     * Initializing variables for our course class.
-     */
     private String userName;
     private String title;
     private String instructor;
@@ -22,9 +18,6 @@ public class Course {
 
     public Course() {}
 
-    /**
-     * Initializing course creation.
-     */
     @Ignore
     public Course(String userName, String title, String instructor, String description, String startDate, String endDate) {
         this.userName = userName;
@@ -35,9 +28,6 @@ public class Course {
         this.endDate = endDate;
     }
 
-    /**
-     * Initializing getters and setter for each variable.
-     */
     public String getUserName() {
         return userName;
     }
@@ -90,9 +80,21 @@ public class Course {
 
     @Override
     public String toString() {
-        return  "Course Title:  "+ title + "\n" + "id=" + id  + "\n" + "Instructor: " + instructor + "\n" +
+        return  "Course Title:  "+ title + "\n" + "id=" + id + "Instructor: " + instructor + "\n" +
                 "Description: "+ description + "\n" + "Start Date: " + startDate + "\n" +
                 "End Date: " + endDate + "\n";
     }
 
+    /*@Override
+    public String toString() {
+        return "Course{" +
+                "id=" + id +
+                ", userName='" + userName + '\n' +
+                ", title='" + title + '\n' +
+                ", instructor='" + instructor + '\n' +
+                ", description='" + description + '\n' +
+                ", startDate='" + startDate + '\n' +
+                ", endDate='" + endDate + '\n' +
+                '}';
+    }*/
 }
