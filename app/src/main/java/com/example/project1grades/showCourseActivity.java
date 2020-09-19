@@ -29,6 +29,7 @@ public class showCourseActivity extends AppCompatActivity {
     EditText user;
     User mUser = LoginPage.nUser;
     ListView courses_view;
+    static Course mCourse = null;
 
 
     @Override
@@ -60,12 +61,12 @@ public class showCourseActivity extends AppCompatActivity {
             }
         });
 
-        move.setOnClickListener(new View.OnClickListener() {
+        /*move.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 change();
             }
-        });
+        });*/
 
         courses = AppDatabase.getAppDatabase(this).dao().getCoursesForUser(mUser.getUsername());
 
@@ -78,6 +79,7 @@ public class showCourseActivity extends AppCompatActivity {
         courses_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                change();
                 Intent intent = new Intent(showCourseActivity.this, AssignmentsPage.class);
                 startActivity(intent);
             }
@@ -89,7 +91,7 @@ public class showCourseActivity extends AppCompatActivity {
         if(!check.isEmpty()){
             for(Course log : courses){
                 if(check == log.getTitle()){
-                    nCourse = log.getId();
+                    mCourse = log;
                     Intent intent = new Intent(showCourseActivity.this, AssignmentsPage.class);
                     startActivity(intent);
                 }
@@ -111,6 +113,8 @@ public class showCourseActivity extends AppCompatActivity {
             TextView rowField = rowView.findViewById(R.id.row_id);
             //set the value of a row in the ListView to the flight info using toString()
             rowField.setText(courses.get(position).toString());
+
+
 
             return rowView;
         }

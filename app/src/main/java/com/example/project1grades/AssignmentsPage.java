@@ -26,7 +26,8 @@ public class AssignmentsPage extends AppCompatActivity {
     Button deleteassignment;
     Course mCourse;
     //TODO: still need to set up passing the variable
-    long num = mCourse.getId();
+    //Course num = showCourseActivity.mCourse;
+    long num = 00;
     List<Assignments> showing;
     TextView allassign;
     EditText input;
@@ -44,6 +45,8 @@ public class AssignmentsPage extends AppCompatActivity {
         allassign = findViewById(R.id.allassignments);
         input = findViewById(R.id.assigndetails);
 
+        //Toast.makeText(AssignmentsPage.this, num.getId(), Toast.LENGTH_LONG).show();
+
 
         addassignment.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +62,7 @@ public class AssignmentsPage extends AppCompatActivity {
             }
         });
 
-        display();
+        //display();
 
     }
 

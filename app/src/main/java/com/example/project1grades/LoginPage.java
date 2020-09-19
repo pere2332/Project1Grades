@@ -20,7 +20,7 @@ import java.util.List;
 public class LoginPage extends AppCompatActivity {
     EditText user;
     EditText pwrd;
-    DAO check;
+    //DAO check = AppDatabase.getAppDatabase(this).dao();
 
     List<User> users;
     Button login;
@@ -33,11 +33,13 @@ public class LoginPage extends AppCompatActivity {
         setContentView(R.layout.activity_login_page);
 
         final DAO dao = AppDatabase.getAppDatabase(this).dao();
+        //users = AppDatabase.getAppDatabase(this).dao().getAllUsers();
 
         login = (Button) findViewById(R.id.signin);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
 
                 users = dao.getAllUsers();
                 user = findViewById(R.id.Usr);
