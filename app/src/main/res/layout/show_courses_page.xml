@@ -25,17 +25,9 @@
         android:text="Logout" />
 
     <Button
-        android:id="@+id/movingtoAssignmet"
-        android:layout_width="202dp"
-        android:layout_height="58dp"
-        android:text="To View Assignments in This Course" />
-
-    <EditText
-        android:id="@+id/userinput"
+        android:id="@+id/delete_course"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Course Name"
-        android:inputType="textPersonName" />
+        android:layout_height="53dp"
+        android:text="Delete a course" />
 
 </LinearLayout>

@@ -36,6 +36,7 @@ public class showCourseActivity extends AppCompatActivity {
     static Course mCourse = null;
     String ct = addCoursesActivity.name;
     String n;
+    Button deleteButton;
 
 
     @Override
@@ -45,8 +46,7 @@ public class showCourseActivity extends AppCompatActivity {
 
         addCourseButton = findViewById(R.id.activity_add_course_button);
         logoutButton = findViewById(R.id.logout);
-        move = findViewById(R.id.movingtoAssignmet);
-        user = findViewById(R.id.userinput);
+
         //TAKES USER TO ADD COURSES ACTIVITY
         addCourseButton.setOnClickListener(new View.OnClickListener() {
             @Override

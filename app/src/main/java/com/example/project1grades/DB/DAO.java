@@ -43,6 +43,9 @@ public interface DAO {
     @Query("select * from Course where username = :name")
     List<Course> getCoursesForUser(String name);
 
+    @Delete
+    public void deleteCourse(Course... course);
+
     //Assignments
     @Insert
     void insert(Assignments... Assignment);
