@@ -12,7 +12,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import com.example.project1grades.DB.AppDatabase;
@@ -30,6 +34,8 @@ public class showCourseActivity extends AppCompatActivity {
     User mUser = LoginPage.nUser;
     ListView courses_view;
     static Course mCourse = null;
+    String ct = addCoursesActivity.name;
+    String n;
 
 
     @Override
@@ -61,12 +67,12 @@ public class showCourseActivity extends AppCompatActivity {
             }
         });
 
-        /*move.setOnClickListener(new View.OnClickListener() {
+        move.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 change();
             }
-        });*/
+        });
 
         courses = AppDatabase.getAppDatabase(this).dao().getCoursesForUser(mUser.getUsername());
 
@@ -79,24 +85,34 @@ public class showCourseActivity extends AppCompatActivity {
         courses_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                change();
-                Intent intent = new Intent(showCourseActivity.this, AssignmentsPage.class);
-                startActivity(intent);
+                //change();
+                TextView textView = view.findViewById(R.id.course_title);
+                String name = parent.getItemAtPosition(position).toString();
+                //Course courses = courses_view.getItemAtPosition(position);
+                /*Intent intent = new Intent(showCourseActivity.this, AssignmentsPage.class);
+                startActivity(intent);*/
+                Toast.makeText(showCourseActivity.this, name, Toast.LENGTH_SHORT).show();
+
+
             }
         });
     }
 
     public void change(){
-        String check = user.getText().toString();
-        if(!check.isEmpty()){
-            for(Course log : courses){
-                if(check == log.getTitle()){
-                    mCourse = log;
-                    Intent intent = new Intent(showCourseActivity.this, AssignmentsPage.class);
-                    startActivity(intent);
-                }
-            }
+        View v;
+        ArrayList<String> names = new ArrayList<String>();
+        EditText et;
+
+        for(int i = 0; i < courses_view.getCount(); i++){
+            v = courses_view.getAdapter().getView(i, null, null);
+            et = (EditText) v.findViewById(i);
+            names.add(et.getText().toString());
+            n = et.getText().toString();
         }
+
+
+        Toast.makeText(showCourseActivity.this, n, Toast.LENGTH_SHORT).show();
+
     }
 
     public class CourseListAdapter extends ArrayAdapter<Course> {

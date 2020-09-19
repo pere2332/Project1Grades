@@ -21,6 +21,7 @@ public class addCoursesActivity extends AppCompatActivity {
     EditText mCourseDescription;
     EditText mStartDate;
     EditText mEndDate;
+    static String name;
     // im just trying different things
     User mUser = LoginPage.nUser; //GET THE USER THAT'S LOGGED IN
 
@@ -67,6 +68,14 @@ public class addCoursesActivity extends AppCompatActivity {
 
         Course newCourse = new Course(mUser.getUsername(),instructorName,courseTitle,courseDescription,startDate,endDate);
         dao.addNewCourse(newCourse);
+        name = courseTitle;
+
+        long num = newCourse.getId();
+
+
+
+        Toast.makeText(this, "" + num, Toast.LENGTH_SHORT).show();
+
 
         Toast.makeText(this, "Course was added.", Toast.LENGTH_SHORT).show();
 
