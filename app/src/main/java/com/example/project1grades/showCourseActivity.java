@@ -11,9 +11,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import android.widget.EditText;
-
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.List;
 
@@ -22,16 +19,10 @@ import com.example.project1grades.DB.User;
 import com.example.project1grades.DB.Course;
 
 public class showCourseActivity extends AppCompatActivity {
-    //new code
-    static long nCourse;
 
     List<Course> courses;
     Button addCourseButton;
     Button logoutButton;
-    //new code
-    Button move;
-    EditText user;
-
     User mUser = LoginPage.nUser;
     ListView courses_view;
 
@@ -42,10 +33,6 @@ public class showCourseActivity extends AppCompatActivity {
 
         addCourseButton = findViewById(R.id.activity_add_course_button);
         logoutButton = findViewById(R.id.logout);
-        // new code
-        move = findViewById(R.id.movingtoAssignmet);
-        user = findViewById(R.id.userinput);
-
         //TAKES USER TO ADD COURSES ACTIVITY
         addCourseButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,13 +43,6 @@ public class showCourseActivity extends AppCompatActivity {
 
             }
         });
-        //new code
-//        move.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                change();
-//            }
-//        });
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +59,7 @@ public class showCourseActivity extends AppCompatActivity {
 
 
 
-        // this pretty much shows the courses that were set up
+        //Takes in a course arraylist to display
         courses_view.setAdapter(new CourseListAdapter(this, courses));
         courses_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -89,20 +69,6 @@ public class showCourseActivity extends AppCompatActivity {
             }
         });
     }
-
-    // new code
-//    public void change(){
-//        String check = user.getText().toString();
-//        if(!check.isEmpty()){
-//            for(Course log : courses){
-//                if(check == log.getTitle()){
-//                    nCourse = log.getId();
-//                    Intent intent = new Intent(showCourseActivity.this, AssignmentsPage.class);
-//                    startActivity(intent);
-//                }
-//            }
-//        }
-//    }
 
     public class CourseListAdapter extends ArrayAdapter<Course> {
 
@@ -116,6 +82,7 @@ public class showCourseActivity extends AppCompatActivity {
             LayoutInflater inflater= showCourseActivity.this.getLayoutInflater();
             View rowView=inflater.inflate(R.layout.rowlayout, null,true);
             TextView rowField = rowView.findViewById(R.id.row_id);
+            //set the value of a row in the ListView to the flight info using toString()
             rowField.setText(courses.get(position).toString());
 
             return rowView;

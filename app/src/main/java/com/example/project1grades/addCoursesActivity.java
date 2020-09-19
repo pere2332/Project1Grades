@@ -34,6 +34,7 @@ public class addCoursesActivity extends AppCompatActivity {
      */
     User mUser = LoginPage.nUser; //GET THE USER THAT'S LOGGED IN
 
+
     Button addCourseButton;
     Button returnMainMenu;
 
