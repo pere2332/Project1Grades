@@ -23,32 +23,6 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="Logout" />
-    <Button
-        android:id="@+id/movingtoAssignmet"
-        android:layout_width="202dp"
-        android:layout_height="58dp"
-        android:text="To View Assignments in This Course" />
-
-    <EditText
-        android:id="@+id/userinput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Course Name"
-        android:inputType="textPersonName" />
-
-    <Button
-        android:id="@+id/movingtoAssignmet"
-        android:layout_width="202dp"
-        android:layout_height="58dp"
-        android:text="To View Assignments in This Course" />
-
-    <EditText
-        android:id="@+id/userinput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Course Name"
-        android:inputType="textPersonName" />
+    
 
 </LinearLayout>

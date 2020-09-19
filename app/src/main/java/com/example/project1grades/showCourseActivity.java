@@ -40,7 +40,6 @@ public class showCourseActivity extends AppCompatActivity {
     Button addCourseButton;
     Button logoutButton;
     Button move;
-    
     EditText user;
 
     User mUser = LoginPage.nUser;
@@ -61,10 +60,8 @@ public class showCourseActivity extends AppCompatActivity {
 
         addCourseButton = findViewById(R.id.activity_add_course_button);
         logoutButton = findViewById(R.id.logout);
-        move = findViewById(R.id.movingtoAssignmet);
-        user = findViewById(R.id.userinput);
-
-
+        //move = findViewById(R.id.movingtoAssignmet);
+        //user = findViewById(R.id.userinput);
 
 
         /**
@@ -157,6 +154,9 @@ public class showCourseActivity extends AppCompatActivity {
             View rowView=inflater.inflate(R.layout.rowlayout, null,true);
             TextView rowField = rowView.findViewById(R.id.row_id);
             rowField.setText(courses.get(position).toString());
+
+
+
             return rowView;
         }
 
