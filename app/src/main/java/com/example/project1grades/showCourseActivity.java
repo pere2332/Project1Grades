@@ -15,28 +15,27 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import com.example.project1grades.DB.AppDatabase;
-import com.example.project1grades.DB.DAO;
 import com.example.project1grades.DB.User;
 import com.example.project1grades.DB.Course;
 
-import static java.lang.Integer.parseInt;
-
-
 public class showCourseActivity extends AppCompatActivity {
 
-    static Course nCourse = null;
+    static long nCourse;
     List<Course> courses;
     Button addCourseButton;
     Button logoutButton;
     Button move;
-    EditText title;
     EditText user;
     User mUser = LoginPage.nUser;
     ListView courses_view;
-    DAO dao;
+    static Course mCourse = null;
+    String ct = addCoursesActivity.name;
+    String n;
 
 
     @Override
@@ -47,7 +46,6 @@ public class showCourseActivity extends AppCompatActivity {
         addCourseButton = findViewById(R.id.activity_add_course_button);
         logoutButton = findViewById(R.id.logout);
         move = findViewById(R.id.movingtoAssignmet);
-        title = findViewById(R.id.course_title);
         user = findViewById(R.id.userinput);
         //TAKES USER TO ADD COURSES ACTIVITY
         addCourseButton.setOnClickListener(new View.OnClickListener() {
@@ -87,37 +85,35 @@ public class showCourseActivity extends AppCompatActivity {
         courses_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //change();
+                TextView textView = view.findViewById(R.id.course_title);
+                String name = parent.getItemAtPosition(position).toString();
+                //Course courses = courses_view.getItemAtPosition(position);
+                /*Intent intent = new Intent(showCourseActivity.this, AssignmentsPage.class);
+                startActivity(intent);*/
+                Toast.makeText(showCourseActivity.this, name, Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(showCourseActivity.this, AssignmentsPage.class);
-                startActivity(intent);
+
             }
         });
     }
 
     public void change(){
-        String check = user.getText().toString();
-        int attempt = 0;
-        courses = dao.getCoursesForUser(mUser.getUsername());
-//      String titles = title.getText().toString();
-        if(!check.isEmpty()){
-            for(Course log : courses){
-                if(true){
-                    Toast.makeText(this, "Complete", Toast.LENGTH_LONG).show();
-                    nCourse = log;
-                    Intent intent = new Intent(showCourseActivity.this, AssignmentsPage.class);
-                    startActivity(intent);
-                    break;
-                }else{
-                    String convert = String.valueOf(attempt);
-                    Toast.makeText(this, mUser.getUsername() + convert, Toast.LENGTH_LONG).show();
-                }
-                attempt++;
-            }
-        }else{
-            Toast.makeText(this,"does not work", Toast.LENGTH_LONG).show();
-        }
-    }
+        View v;
+        ArrayList<String> names = new ArrayList<String>();
+        EditText et;
 
+        for(int i = 0; i < courses_view.getCount(); i++){
+            v = courses_view.getAdapter().getView(i, null, null);
+            et = (EditText) v.findViewById(i);
+            names.add(et.getText().toString());
+            n = et.getText().toString();
+        }
+
+
+        Toast.makeText(showCourseActivity.this, n, Toast.LENGTH_SHORT).show();
+
+    }
 
     public class CourseListAdapter extends ArrayAdapter<Course> {
 
@@ -133,6 +129,8 @@ public class showCourseActivity extends AppCompatActivity {
             TextView rowField = rowView.findViewById(R.id.row_id);
             //set the value of a row in the ListView to the flight info using toString()
             rowField.setText(courses.get(position).toString());
+
+
 
             return rowView;
         }
