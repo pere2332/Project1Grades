@@ -1,3 +1,8 @@
+/**
+ * This activity gets information from the user about the course
+ * and adds the course the user creates to our database
+ */
+
 package com.example.project1grades;
 
 import android.content.Intent;
@@ -16,6 +21,9 @@ import com.example.project1grades.DB.AppDatabase;
 
 public class addCoursesActivity extends AppCompatActivity {
 
+    /**
+     * Initializing variables for our course to be filled out.
+     */
     EditText mInstructorName;
     EditText mCourseTitle;
     EditText mCourseDescription;
@@ -23,12 +31,19 @@ public class addCoursesActivity extends AppCompatActivity {
     EditText mEndDate;
     static String name;
     // im just trying different things
+    /**
+     * this gets the user that is logged in and adds course to their account.
+     */
     User mUser = LoginPage.nUser; //GET THE USER THAT'S LOGGED IN
 
 
     Button addCourseButton;
     Button returnMainMenu;
 
+    /**
+     * When add course is created it initializes variables for user to input information and
+     * creates an add course button
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -43,6 +58,9 @@ public class addCoursesActivity extends AppCompatActivity {
         mStartDate = findViewById(R.id.start_date);
         mEndDate = findViewById(R.id.end_date);
 
+        /**
+         * When add course button is clicked it runs addCourse function and goes to show course activity.
+         */
         addCourseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +74,10 @@ public class addCoursesActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * The add course function gets all variables for course, adds them to the database,
+     * and displays a message to the user that the course was added.
+     */
     boolean addCourse(){
 
         String courseTitle = mCourseTitle.getText().toString();

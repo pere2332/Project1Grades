@@ -8,6 +8,9 @@ import androidx.room.PrimaryKey;
 public class User {
     @PrimaryKey(autoGenerate = true)
     private long id;
+    /**
+     * Initializes the variables for assignments.
+     */
 
     private String username;
     private String password;
@@ -23,6 +26,9 @@ public class User {
         this.password = password;
     }
 
+    /**
+     * Setters and getters for initialized variables.
+     */
     public long getId() {
         return id;
     }

@@ -9,7 +9,9 @@ import java.util.Date;
 
 @Entity
 public class Assignments {
-
+    /**
+     * Initializes the variables for assignments.
+     */
     @PrimaryKey(autoGenerate = true)
     private int id;
 
@@ -36,14 +38,17 @@ public class Assignments {
         this.date = date;
     }
 
-    public void setCourseid(long courseid) {
-        this.courseid = courseid;
-    }
 
+    /**
+     * Setters and getter for initialized variables.
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    public void setCourseid(int courseid) {
+        this.courseid = courseid;
+    }
 
     public String getDate() {
         return date;

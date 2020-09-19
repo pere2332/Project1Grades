@@ -1,3 +1,7 @@
+/**
+ * This is our main activity, it gives the user 2 options at the beginning of our app.
+ */
+
 package com.example.project1grades;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +15,10 @@ public class MainActivity extends AppCompatActivity {
     Button login;
     Button create;
 
+    /**
+     * User is given 2 options during the main activity,
+     * 1 to login, 2 to create an account.
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +43,17 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Sends user to the Login page.
+     */
     private void Loginpage(){
         Intent intent = new Intent(this, LoginPage.class);
         startActivity(intent);
     }
 
+    /**
+     * Sends user to the create account page.
+     */
     private void createPage(){
         Intent in = new Intent(this, CreateAccout.class);
         startActivity(in);

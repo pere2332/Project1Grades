@@ -1,3 +1,8 @@
+/**
+ * This is our applications Database.
+ */
+
+
 package com.example.project1grades.DB;
 
 
