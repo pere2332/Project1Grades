@@ -23,9 +23,11 @@ import com.example.project1grades.DB.AppDatabase;
 import com.example.project1grades.DB.User;
 import com.example.project1grades.DB.Course;
 
+import static java.lang.Long.parseLong;
+
 public class showCourseActivity extends AppCompatActivity {
 
-    static long nCourse;
+    static String num;
     List<Course> courses;
     Button addCourseButton;
     Button logoutButton;
@@ -88,16 +90,37 @@ public class showCourseActivity extends AppCompatActivity {
                 //change();
                 TextView textView = view.findViewById(R.id.course_title);
                 String name = parent.getItemAtPosition(position).toString();
+                //String save2 = convert(name);
+                String[] ofStr = name.split(" ", 7);
+                num = ofStr[0];
                 //Course courses = courses_view.getItemAtPosition(position);
-                /*Intent intent = new Intent(showCourseActivity.this, AssignmentsPage.class);
-                startActivity(intent);*/
-                Toast.makeText(showCourseActivity.this, name, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(showCourseActivity.this, AssignmentsPage.class);
+                startActivity(intent);
+                Toast.makeText(showCourseActivity.this, name + "\n=========\n" + ofStr[0] , Toast.LENGTH_SHORT).show();
 
 
             }
         });
     }
 
+    public String convert(String name){
+        int start = 0;
+        StringBuilder sb = new StringBuilder();
+        char[] chars = name.toCharArray();
+        for(int i = 0; 0 < name.length(); i++){
+            if(chars[i] == '='){
+                start++;
+            }
+            if(chars[i] == ' ' ){
+                start++;
+            }
+            if(start != 2){
+                sb.append(chars[i]);
+            }
+        }
+        String save = sb.toString();
+        return save;
+    }
     public void change(){
         View v;
         ArrayList<String> names = new ArrayList<String>();

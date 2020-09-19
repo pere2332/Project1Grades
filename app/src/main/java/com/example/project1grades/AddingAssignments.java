@@ -15,15 +15,17 @@ import com.example.project1grades.DB.Course;
 import com.example.project1grades.DB.DAO;
 
 import static java.lang.Double.parseDouble;
+import static java.lang.Long.parseLong;
 
 public class AddingAssignments extends AppCompatActivity {
 
 
+    String getid = showCourseActivity.num;
     EditText detail;
     EditText earn;
     EditText max;
     EditText dates;
-    Course mCourse = showCourseActivity.nCourse;
+    long mCourse = 00;
 
 
     Button doneadding;
@@ -82,7 +84,19 @@ public class AddingAssignments extends AppCompatActivity {
 
 
         DAO dao = AppDatabase.getAppDatabase(AddingAssignments.this).dao();
-        Assignments newAssign = new Assignments(mCourse.getId(), total, points, descrip, fecha);
+        StringBuilder temp = new StringBuilder();
+        int count = 0;
+        for(int i = 0; i < getid.length(); i++){
+            if(getid.charAt(i) == '='){
+                count++;
+            }
+            if(count > 0){
+                temp.append(getid.charAt(i));
+            }
+        }
+        String temp2 = temp.toString();
+        long num = parseLong(temp2);
+        Assignments newAssign = new Assignments(num, total, points, descrip, fecha);
         dao.insert(newAssign);
 
         Toast.makeText(this,"Assignment was added.", Toast.LENGTH_LONG).show();

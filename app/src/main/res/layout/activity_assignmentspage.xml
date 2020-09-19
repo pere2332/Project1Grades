@@ -8,23 +8,12 @@
 
 
     <TextView
-        android:id="@+id/allassignments"
-        android:layout_width="367dp"
-        android:layout_height="278dp"
-        android:layout_marginBottom="16dp"
-        android:fadeScrollbars="true"
-        android:scrollbars="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
         android:id="@+id/textView2"
         android:layout_width="339dp"
-        android:layout_height="46dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="sans-serif-black"
         android:text="Assignments"
-        app:layout_constraintBottom_toTopOf="@+id/allassignments"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,90 +22,88 @@
         android:id="@+id/add_assignmets"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginTop="372dp"
         android:text="ADD"
-        app:layout_constraintBottom_toTopOf="@+id/delete_assignment"
-        app:layout_constraintEnd_toStartOf="@+id/textView3"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/allassignments"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
         android:id="@+id/delete_assignment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginBottom="101dp"
         android:text="DELETE"
-        app:layout_constraintBottom_toTopOf="@+id/back"
-        app:layout_constraintEnd_toStartOf="@+id/assigndetails"
+        app:layout_constraintBottom_toBottomOf="@+id/back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/add_assignmets"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/assigndetails"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="2dp"
+        android:layout_width="230dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginBottom="36dp"
         android:ems="10"
         android:hint="Write Out Detials Complete"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/delete_assignment"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.058"
         app:layout_constraintStart_toEndOf="@+id/delete_assignment"
-        app:layout_constraintTop_toTopOf="@+id/delete_assignment" />
+        app:layout_constraintTop_toBottomOf="@+id/_dynamic"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="135dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginEnd="151dp"
         android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintEnd_toStartOf="@+id/textView7"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/delete_assignment" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="166dp"
-        android:layout_height="34dp"
-        android:text="Current Percentage:"
-        android:textSize="18sp"
-        tools:layout_editor_absoluteX="156dp"
-        tools:layout_editor_absoluteY="380dp" />
-
-    <TextView
-        android:id="@+id/percent"
-        android:layout_width="73dp"
-        android:layout_height="33dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toTopOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/add_assignmets"
+        app:layout_constraintVertical_bias="0.676" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="110dp"
-        android:layout_height="31dp"
+        android:layout_height="37dp"
         android:text="Current Grade"
-        tools:layout_editor_absoluteX="213dp"
-        tools:layout_editor_absoluteY="560dp" />
+        tools:layout_editor_absoluteX="239dp"
+        tools:layout_editor_absoluteY="590dp" />
 
     <TextView
         android:id="@+id/Grade"
         android:layout_width="122dp"
-        android:layout_height="74dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="149dp"
+        android:layout_marginBottom="44dp"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="210dp"
-        tools:layout_editor_absoluteY="614dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_assignmets" />
+
+    <ListView
+        android:id="@+id/allsignments"
+        android:layout_width="409dp"
+        android:layout_height="311dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/add_assignmets"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

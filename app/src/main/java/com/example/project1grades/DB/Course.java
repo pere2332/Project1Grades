@@ -80,7 +80,7 @@ public class Course {
 
     @Override
     public String toString() {
-        return  "Course Title:  "+ title + "\n" + "id=" + id + "Instructor: " + instructor + "\n" +
+        return  "id=" + id + " Course Title:  "+ title + " \n" + " \nInstructor: " + instructor + "\n" +
                 "Description: "+ description + "\n" + "Start Date: " + startDate + "\n" +
                 "End Date: " + endDate + "\n";
     }
