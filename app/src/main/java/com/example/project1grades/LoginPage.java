@@ -34,7 +34,7 @@ public class LoginPage extends AppCompatActivity {
 
         final DAO dao = AppDatabase.getAppDatabase(this).dao();
 
-        login = (Button) findViewById(R.id.signin);
+        login = findViewById(R.id.signin);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

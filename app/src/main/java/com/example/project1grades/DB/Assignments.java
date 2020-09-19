@@ -36,13 +36,14 @@ public class Assignments {
         this.date = date;
     }
 
+    public void setCourseid(long courseid) {
+        this.courseid = courseid;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setCourseid(int courseid) {
-        this.courseid = courseid;
-    }
 
     public String getDate() {
         return date;

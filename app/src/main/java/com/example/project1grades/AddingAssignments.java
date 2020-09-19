@@ -23,7 +23,7 @@ public class AddingAssignments extends AppCompatActivity {
     EditText earn;
     EditText max;
     EditText dates;
-    long mCourse = showCourseActivity.nCourse;
+    Course mCourse = showCourseActivity.nCourse;
 
 
     Button doneadding;
@@ -82,7 +82,7 @@ public class AddingAssignments extends AppCompatActivity {
 
 
         DAO dao = AppDatabase.getAppDatabase(AddingAssignments.this).dao();
-        Assignments newAssign = new Assignments(mCourse, total, points, descrip, fecha);
+        Assignments newAssign = new Assignments(mCourse.getId(), total, points, descrip, fecha);
         dao.insert(newAssign);
 
         Toast.makeText(this,"Assignment was added.", Toast.LENGTH_LONG).show();

@@ -25,7 +25,6 @@ public class AssignmentsPage extends AppCompatActivity {
     Button addassignment;
     Button deleteassignment;
     Course mCourse;
-    //TODO: still need to set up passing the variable
     long num = mCourse.getId();
     List<Assignments> showing;
     TextView allassign;
@@ -44,6 +43,7 @@ public class AssignmentsPage extends AppCompatActivity {
         allassign = findViewById(R.id.allassignments);
         input = findViewById(R.id.assigndetails);
 
+        display();
 
         addassignment.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +59,7 @@ public class AssignmentsPage extends AppCompatActivity {
             }
         });
 
-        display();
+
 
     }
 
@@ -111,6 +111,18 @@ public class AssignmentsPage extends AppCompatActivity {
             allassign.setText("No Assignments found");
         }
 
+    }
+
+    public double overallgrade(){
+        double total = 0;
+        double sub;
+        double sub2;
+        for(Assignments log : showing){
+            sub = log.getEarnedscore();
+            sub2 = log.getMaxscore();
+            total = total + (sub/sub2);
+        }
+        return total * 100;
     }
 
 

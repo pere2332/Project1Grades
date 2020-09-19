@@ -12,23 +12,31 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.List;
 
 import com.example.project1grades.DB.AppDatabase;
+import com.example.project1grades.DB.DAO;
 import com.example.project1grades.DB.User;
 import com.example.project1grades.DB.Course;
 
+import static java.lang.Integer.parseInt;
+
+
 public class showCourseActivity extends AppCompatActivity {
 
-    static long nCourse;
+    static Course nCourse = null;
     List<Course> courses;
     Button addCourseButton;
     Button logoutButton;
     Button move;
+    EditText title;
     EditText user;
     User mUser = LoginPage.nUser;
     ListView courses_view;
+    DAO dao;
 
 
     @Override
@@ -39,6 +47,7 @@ public class showCourseActivity extends AppCompatActivity {
         addCourseButton = findViewById(R.id.activity_add_course_button);
         logoutButton = findViewById(R.id.logout);
         move = findViewById(R.id.movingtoAssignmet);
+        title = findViewById(R.id.course_title);
         user = findViewById(R.id.userinput);
         //TAKES USER TO ADD COURSES ACTIVITY
         addCourseButton.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +87,7 @@ public class showCourseActivity extends AppCompatActivity {
         courses_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 Intent intent = new Intent(showCourseActivity.this, AssignmentsPage.class);
                 startActivity(intent);
             }
@@ -86,16 +96,28 @@ public class showCourseActivity extends AppCompatActivity {
 
     public void change(){
         String check = user.getText().toString();
+        int attempt = 0;
+        courses = dao.getCoursesForUser(mUser.getUsername());
+//      String titles = title.getText().toString();
         if(!check.isEmpty()){
             for(Course log : courses){
-                if(check == log.getTitle()){
-                    nCourse = log.getId();
+                if(true){
+                    Toast.makeText(this, "Complete", Toast.LENGTH_LONG).show();
+                    nCourse = log;
                     Intent intent = new Intent(showCourseActivity.this, AssignmentsPage.class);
                     startActivity(intent);
+                    break;
+                }else{
+                    String convert = String.valueOf(attempt);
+                    Toast.makeText(this, mUser.getUsername() + convert, Toast.LENGTH_LONG).show();
                 }
+                attempt++;
             }
+        }else{
+            Toast.makeText(this,"does not work", Toast.LENGTH_LONG).show();
         }
     }
+
 
     public class CourseListAdapter extends ArrayAdapter<Course> {
 

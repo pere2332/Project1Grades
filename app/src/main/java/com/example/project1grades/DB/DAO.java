@@ -43,6 +43,10 @@ public interface DAO {
     @Query("select * from Course where username = :name")
     List<Course> getCoursesForUser(String name);
 
+    @Query("select * from Course where id = :ids")
+    List<Course> getallbyid(long ids);
+
+
     //Assignments
     @Insert
     void insert(Assignments... Assignment);
