@@ -9,8 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddingAssignments"></activity>
-        <activity android:name=".AssignmentsPage" />
+
         <activity android:name=".LoginPage" />
         <activity android:name=".HomePage" />
         <activity android:name=".MainActivity">
@@ -35,6 +34,20 @@
             </intent-filter>
         </activity>
         <activity android:name=".showCourseActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".AddingAssignments">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".AssignmentsPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

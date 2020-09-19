@@ -1,3 +1,6 @@
+/**
+ * This activity checks if the user exist in the database and lets them log in.
+ */
 package com.example.project1grades;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +21,10 @@ import com.example.project1grades.DB.User;
 import java.util.List;
 
 public class LoginPage extends AppCompatActivity {
+    /**
+     * Initializes variables for login page.
+     */
+
     EditText user;
     EditText pwrd;
     //DAO check = AppDatabase.getAppDatabase(this).dao();
@@ -27,6 +34,12 @@ public class LoginPage extends AppCompatActivity {
 
     static User nUser = null;
 
+
+    /**
+     * When create account is created displays the activity_login_page, after users enter their
+     * account information, it checks to see if the information is correct in our database and
+     * will allow the user to log in if it is correct.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +65,12 @@ public class LoginPage extends AppCompatActivity {
                 String username = user.getText().toString();
                 String password = pwrd.getText().toString();
 
+                /**
+                 * This loops goes through our list of users and checks if the passwords and usernames
+                 * are equal to any of the users in the database.
+                 * If the username entered equals to the username in the database and the password
+                 * entered is equal to the password in the database then we pass that it is true.
+                 */
                 //changed the for loop
                 for(User existingUser:users){
                     if(existingUser.getUsername().equals(username)&&existingUser.getPassword().equals(password)) {
@@ -87,6 +106,10 @@ public class LoginPage extends AppCompatActivity {
                 String u = username;
                 String p = password;
 
+                /**
+                 * When we the pass is true, the user is redirected to the show course activity page
+                 * with a welcome toast.
+                 */
                 if(pass == true){
                     //nUser = users;
                     // shouldn't intent just be sent to the showCourseActivity since its pretty much our home?
@@ -100,6 +123,11 @@ public class LoginPage extends AppCompatActivity {
                     Toast.makeText(LoginPage.this, "Welcome! " + username + "!", Toast.LENGTH_LONG).show();
                     //Toast.makeText(LoginPage.this, "Welcome! " + nUser + "!", Toast.LENGTH_LONG).show();
                     startActivity(intent);
+
+                    /**
+                     * If the pass fails, then the user is given the reason why they are not able to
+                     * login.
+                     */
                 }else if(pass == false){
                     if(userRight && !passRight){
                         Toast.makeText(LoginPage.this, "username is incorrect", Toast.LENGTH_LONG).show();

@@ -1,3 +1,10 @@
+/**
+ * Shows course activity class shows courses that the user has.
+ * If the user hasnt had any courses added then it will appear blank with only
+ * the add course button and return button.
+ * Once users enter their course with information it will appear on the show course page.
+ */
+
 package com.example.project1grades;
 
 import android.app.Activity;
@@ -26,11 +33,16 @@ import com.example.project1grades.DB.Course;
 public class showCourseActivity extends AppCompatActivity {
 
     static long nCourse;
+    /**
+     * Initializing variables for our course to be filled out.
+     */
     List<Course> courses;
     Button addCourseButton;
     Button logoutButton;
     Button move;
+    
     EditText user;
+
     User mUser = LoginPage.nUser;
     ListView courses_view;
     static Course mCourse = null;
@@ -38,6 +50,10 @@ public class showCourseActivity extends AppCompatActivity {
     String n;
 
 
+    /**
+     * When Show course activity is created, it displays the show courses page with 2 buttons,
+     * a log out button and an add courses button.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +63,13 @@ public class showCourseActivity extends AppCompatActivity {
         logoutButton = findViewById(R.id.logout);
         move = findViewById(R.id.movingtoAssignmet);
         user = findViewById(R.id.userinput);
-        //TAKES USER TO ADD COURSES ACTIVITY
+
+
+
+
+        /**
+         * This button takes the user to add courses activity.
+         */
         addCourseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,6 +80,9 @@ public class showCourseActivity extends AppCompatActivity {
             }
         });
 
+        /**
+         * This button logs out the user and takes the user to the main activity
+         */
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -115,6 +140,10 @@ public class showCourseActivity extends AppCompatActivity {
 
     }
 
+
+    /**
+     * This allows the user to click on the course that they want to add assignments to.
+     */
     public class CourseListAdapter extends ArrayAdapter<Course> {
 
         public CourseListAdapter(Activity context, List<Course> courses){
@@ -127,11 +156,7 @@ public class showCourseActivity extends AppCompatActivity {
             LayoutInflater inflater= showCourseActivity.this.getLayoutInflater();
             View rowView=inflater.inflate(R.layout.rowlayout, null,true);
             TextView rowField = rowView.findViewById(R.id.row_id);
-            //set the value of a row in the ListView to the flight info using toString()
             rowField.setText(courses.get(position).toString());
-
-
-
             return rowView;
         }
 

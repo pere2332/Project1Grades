@@ -1,5 +1,6 @@
 /**
- * This activity adds the course the user creates to our database
+ * This activity gets information from the user about the course
+ * and adds the course the user creates to our database
  */
 
 package com.example.project1grades;
@@ -39,6 +40,10 @@ public class addCoursesActivity extends AppCompatActivity {
     Button addCourseButton;
     Button returnMainMenu;
 
+    /**
+     * When add course is created it initializes variables for user to input information and
+     * creates an add course button
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -53,6 +58,9 @@ public class addCoursesActivity extends AppCompatActivity {
         mStartDate = findViewById(R.id.start_date);
         mEndDate = findViewById(R.id.end_date);
 
+        /**
+         * When add course button is clicked it runs addCourse function and goes to show course activity.
+         */
         addCourseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,6 +74,10 @@ public class addCoursesActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * The add course function gets all variables for course, adds them to the database,
+     * and displays a message to the user that the course was added.
+     */
     boolean addCourse(){
 
         String courseTitle = mCourseTitle.getText().toString();

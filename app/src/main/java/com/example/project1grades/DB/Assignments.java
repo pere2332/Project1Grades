@@ -9,7 +9,9 @@ import java.util.Date;
 
 @Entity
 public class Assignments {
-
+    /**
+     * Initializes the variables for assignments.
+     */
     @PrimaryKey(autoGenerate = true)
     private int id;
 
@@ -36,6 +38,10 @@ public class Assignments {
         this.date = date;
     }
 
+
+    /**
+     * Setters and getter for initialized variables.
+     */
     public void setId(int id) {
         this.id = id;
     }
