@@ -8,86 +8,116 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="94dp"
+        android:layout_width="0dp"
         android:layout_height="57dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginEnd="17dp"
         android:text="Details"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="132dp" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/detials"
+        app:layout_constraintEnd_toStartOf="@+id/detials"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="98dp"
+        android:layout_width="0dp"
         android:layout_height="77dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="81dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="84dp"
         android:text="Earned Score"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="213dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView6"
+        app:layout_constraintEnd_toStartOf="@+id/earned"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="84dp"
+        android:layout_width="0dp"
         android:layout_height="66dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="36dp"
         android:text="Max Score"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="308dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@+id/max"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/earned" />
 
     <EditText
         android:id="@+id/detials"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="132dp"
+        android:layout_marginEnd="59dp"
         android:ems="10"
         android:hint="Write Here"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="142dp"
-        tools:layout_editor_absoluteY="132dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/earned"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="41dp"
+        android:layout_marginEnd="59dp"
         android:ems="10"
         android:hint="Write Here"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="142dp"
-        tools:layout_editor_absoluteY="230dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <EditText
         android:id="@+id/max"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="59dp"
         android:ems="10"
         android:hint="Write Here"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="142dp"
-        tools:layout_editor_absoluteY="317dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="@+id/textView6" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginBottom="289dp"
         android:text="Date"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="410dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="56dp"
         android:ems="10"
         android:hint="Write Here"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="145dp"
-        tools:layout_editor_absoluteY="403dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <Button
         android:id="@+id/done"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="93dp"
         android:text="Finished"
-        tools:layout_editor_absoluteX="154dp"
-        tools:layout_editor_absoluteY="541dp" />
+        app:layout_constraintStart_toStartOf="@+id/date"
+        app:layout_constraintTop_toBottomOf="@+id/date" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
